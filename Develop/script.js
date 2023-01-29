@@ -27,7 +27,32 @@ var currentDayEl = document.querySelector("#currentDay");
 
 //add a variable that will serve as the current date and time to be displayed
 var time = setInterval(function () {
-  var currentTime = dayjs().format("dddd, MMMM D");
-  currentDayEl.textContent = currentTime;
+  var currentDate = dayjs().format("dddd, MMMM D");
+  currentDayEl.textContent = currentDate;
 
-}, 1000)
+}, 1000);
+
+//create function that compares current hour of day with hour of day associated with timeblock and styles accordingly
+function hourStyle() {
+  var currentHour = dayjs().format("H");
+  var hours = document.querySelector(".container-fluid").children;
+  for (var i = 0; i < hours.length; i++) {
+    var timeBlockHour = hours[i].id.split('-')[1]; //this returns the hour number of the element block currently in loop
+    if (parseInt(timeBlockHour) === parseInt(currentHour)) {
+      hours[i].setAttribute("class", "row time-block present"); //set current hour styling on the element block whose hour is equal to current hour
+    }
+    else if (parseInt(timeBlockHour) > parseInt(currentHour)) {
+      hours[i].setAttribute("class", "row time-block future"); //set future hour styling on all element blocks whose hour value is greater than that of current hour
+    }
+
+    else {
+      hours[i].setAttribute("class", "row time-block past"); //set past hour styling on all element blocks whose hour value is less than that of current hour
+    }
+
+    //   if (hours[i].id.includes(currentHour))
+
+    // }
+  }
+}
+
+hourStyle();
