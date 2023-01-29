@@ -28,6 +28,20 @@ var currentDayEl = document.querySelector("#currentDay");
 //create a variable that targets the 8AM timeblock of the container-fluid div
 var timeBlock8 = document.querySelector("#hour-8 button");
 
+//create object to use in local storage for all 9 time blocks
+var taskData = {
+  hour8: "",
+  hour9: "",
+  hour10: "",
+  hour11: "",
+  hour12: "",
+  hour13: "",
+  hour14: "",
+  hour15: "",
+  hour16: "",
+  hour17: ""
+}
+
 //add a variable that will serve as the current date and time to be displayed
 var time = setInterval(function () {
   var currentDate = dayjs().format("dddd, MMMM D");
@@ -54,18 +68,24 @@ function hourStyle() {
   }
 }
 
+//create a function that returns the key of the taskData object that shares the same time block number
+function indexReturn(timeBlock, object) {
+  for (var i = 0; i < Object.keys(object); i++) {
+    if (Object.keys(object)[i].slice(-2).includes(timeBlock)) {
+      return Object.keys(object);
+    }
+  }
+
+}
 //create function that takes task text entered into an element block and saves into local storage
 function saveData(e) {
   var El = e.target
   var parentEl = El.parentElement;
   var task = parentEl.children[1].value;
-  if (El.matches(".saveBtn")) {
-    console.log("True")
-  }
+  var timeblock = parentEl.id.split("-")[1]
+  var tasks = Object.keys(taskData)
 
-  else (
-    console.log("False")
-  )
+  localStorage.setItem("taskData", JSON.stringify(studentGrade));
 }
 
 hourStyle();
