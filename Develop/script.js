@@ -27,7 +27,7 @@ var currentDayEl = document.querySelector("#currentDay");
 
 //add a variable that will serve as the current date and time to be displayed
 var time = setInterval(function () {
-  var currentTime = dayjs().format("MMMM D, YYYY h:mm A");
+  var currentTime = dayjs().format("dddd, MMMM D");
   currentDayEl.textContent = currentTime;
 
 }, 1000)
