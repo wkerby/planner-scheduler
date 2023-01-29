@@ -48,10 +48,6 @@ function hourStyle() {
     else {
       hours[i].setAttribute("class", "row time-block past"); //set past hour styling on all element blocks whose hour value is less than that of current hour
     }
-
-    //   if (hours[i].id.includes(currentHour))
-
-    // }
   }
 }
 
