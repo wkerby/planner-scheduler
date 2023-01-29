@@ -69,7 +69,7 @@ function hourStyle() {
 }
 
 //create a function that returns the key of the taskData object that shares the same time block number
-function indexReturn(timeBlock, object) {
+function keyReturn(timeBlock, object) {
   for (var i = 0; i < Object.keys(object); i++) {
     if (Object.keys(object)[i].slice(-2).includes(timeBlock)) {
       return Object.keys(object);
@@ -82,8 +82,8 @@ function saveData(e) {
   var El = e.target
   var parentEl = El.parentElement;
   var task = parentEl.children[1].value;
-  var timeblock = parentEl.id.split("-")[1]
-  var tasks = Object.keys(taskData)
+  var timeBlock = parentEl.id.split("-")[1];
+  taskData.keyReturn(timeBlock, taskData) = task; //call the keyReturn function to assing text value in task to approprate key in taskData object
 
   localStorage.setItem("taskData", JSON.stringify(studentGrade));
 }
