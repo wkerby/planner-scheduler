@@ -25,6 +25,9 @@ $(function () {
 //create a variable that targets p element of header in which current day will be displayed
 var currentDayEl = document.querySelector("#currentDay");
 
+//create a variable that targets the 8AM timeblock of the container-fluid div
+var timeBlock8 = document.querySelector("#hour-8 button");
+
 //add a variable that will serve as the current date and time to be displayed
 var time = setInterval(function () {
   var currentDate = dayjs().format("dddd, MMMM D");
@@ -51,4 +54,20 @@ function hourStyle() {
   }
 }
 
+//create function that takes task text entered into an element block and saves into local storage
+function saveData(e) {
+  var El = e.target
+  var parentEl = El.parentElement;
+  var task = parentEl.children[1].value;
+  if (El.matches(".saveBtn")) {
+    console.log("True")
+  }
+
+  else (
+    console.log("False")
+  )
+}
+
 hourStyle();
+
+timeBlock8.addEventListener("click", saveData);
