@@ -94,7 +94,7 @@ function hourStyle() {
       hours[i].setAttribute("class", "row time-block past"); //set past hour styling on all element blocks whose hour value is less than that of current hour
     }
   }
-}
+};
 
 //create a function that returns the key of the taskData object that shares the same time block number
 function keyReturn(timeBlock, object) {
@@ -104,7 +104,8 @@ function keyReturn(timeBlock, object) {
     }
   }
 
-}
+};
+
 //create function that takes task text entered into an element block and saves into local storage
 function saveData(e) {
   e.stopPropagation();
@@ -131,7 +132,7 @@ function saveData(e) {
 
   taskData[key] = task; //call the keyReturn function to assing text value in task to approprate key in taskData object
   localStorage.setItem("taskData", JSON.stringify(taskData));
-}
+};
 
 //create function that renders data from previous save onto page
 function renderData() {
@@ -154,6 +155,10 @@ for (var i = 0; i < saveButtons.length; i++) {
   saveButtons[i].addEventListener("click", saveData);
 };
 
+//create an init function that runs as soon as the page is refreshed
+function init() {
+  hourStyle();
+  renderData();
+};
 
-hourStyle();
-renderData();
+init();
