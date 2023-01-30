@@ -89,6 +89,7 @@ function keyReturn(timeBlock, object) {
 }
 //create function that takes task text entered into an element block and saves into local storage
 function saveData(e) {
+  e.stopPropagation();
   var El = e.target
   var parentEl = El.parentElement;
   var task = parentEl.children[1].value.trim();
@@ -100,6 +101,9 @@ function saveData(e) {
   taskData[key] = task; //call the keyReturn function to assing text value in task to approprate key in taskData object
   localStorage.setItem("taskData", JSON.stringify(taskData));
 }
+
+//create function that renders data from previous save onto page
+
 
 hourStyle();
 
