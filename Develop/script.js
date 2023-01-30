@@ -21,12 +21,22 @@ $(function () {
   //
   // TODO: Add code to display the current date in the header of the page.
 });
-
+localStorage.clear();
 //create a variable that targets p element of header in which current day will be displayed
 var currentDayEl = document.querySelector("#currentDay");
 
 //create a variable that targets the 8AM timeblock of the container-fluid div
 var timeBlock8 = document.querySelector("#hour-8 button");
+var timeBlock9 = document.querySelector("#hour-9 button");
+var timeBlock10 = document.querySelector("#hour-10 button");
+var timeBlock11 = document.querySelector("#hour-11 button");
+var timeBlock12 = document.querySelector("#hour-12 button");
+var timeBlock13 = document.querySelector("#hour-13 button");
+var timeBlock14 = document.querySelector("#hour-14 button");
+var timeBlock15 = document.querySelector("#hour-15 button");
+var timeBlock16 = document.querySelector("#hour-16 button");
+var timeBlock17 = document.querySelector("#hour-17 button");
+
 
 //create object to use in local storage for all 9 time blocks
 var taskData = {
@@ -93,6 +103,13 @@ function saveData(e) {
 
 hourStyle();
 
-timeBlock8.addEventListener("click", saveData);
+//create a list of all time block save buttons
+var saveButtons = [timeBlock8, timeBlock9, timeBlock10, timeBlock11, timeBlock12, timeBlock13, timeBlock14, timeBlock15, timeBlock16, timeBlock17];
+
+
+//assign an event listener with save functionality to all time block save buttons
+for (var i = 0; i < saveButtons.length; i++) {
+  saveButtons[i].addEventListener("click", saveData);
+}
 
 
