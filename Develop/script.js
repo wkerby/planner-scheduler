@@ -21,7 +21,9 @@ $(function () {
   //
   // TODO: Add code to display the current date in the header of the page.
 });
+
 // localStorage.clear();
+
 //create a variable that targets p element of header in which current day will be displayed
 var currentDayEl = document.querySelector("#currentDay");
 
@@ -50,6 +52,8 @@ var textArea16 = document.querySelector("#hour-16 textarea");
 var textArea17 = document.querySelector("#hour-17 textarea");
 
 //create object to use in local storage for all 9 time blocks
+//create a function that initializes taskData object depending on what is in localStorage
+
 var taskData = {
   hour8: "",
   hour9: "",
@@ -113,6 +117,14 @@ function saveData(e) {
   var timeBlock = parentEl.id.split("-")[1];
   keyReturn(timeBlock, taskData);
   var key = keyReturn(timeBlock, taskData);
+  if (localStorage.getItem('taskData')) { //if the user has already saved items into the taskData localStorage object
+    console.log("True");
+    taskData = JSON.parse(localStorage.getItem('taskData'));
+  }
+
+  else {
+    console.log("False");
+  }
 
   taskData[key] = task; //call the keyReturn function to assing text value in task to approprate key in taskData object
   localStorage.setItem("taskData", JSON.stringify(taskData));
@@ -122,7 +134,13 @@ function saveData(e) {
 function renderData() {
   //create a list of all text areas in timeblocks
   var textAreas = [textArea8, textArea9, textArea10, textArea11, textArea12, textArea13, textArea14, textArea15, textArea16, textArea17];
-  var taskData = JSON.parse(localStorage.getItem("taskData"));
+  if (localStorage.getItem('taskData')) {
+    console.log("Render True");
+    var taskData = JSON.parse(localStorage.getItem("taskData"));
+  }
+  else {
+    console.log("Render False");
+  }
   for (var i = 0; i < textAreas.length; i++) {
     textAreas[i].textContent = taskData[Object.keys(taskData)[i]];
   }
