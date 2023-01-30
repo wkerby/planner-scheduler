@@ -91,9 +91,14 @@ function keyReturn(timeBlock, object) {
 function saveData(e) {
   e.stopPropagation();
   var El = e.target
-  var parentEl = El.parentElement;
-  var task = parentEl.children[1].value.trim();
+  if (El.tagName === "I") { //if the element selected is an image element, then traverse out to grandparent element to get correct id selector in order to save to targetData object
+    var parentEl = El.parentElement.parentElement;
+  }
+  else {
+    var parentEl = El.parentElement; //if the element selected is not an image elemnet (i.e. it is a button element) traverse out only to parent element for correct ID selector
+  }
 
+  var task = parentEl.children[1].value.trim();
   var timeBlock = parentEl.id.split("-")[1];
   keyReturn(timeBlock, taskData);
   var key = keyReturn(timeBlock, taskData);
