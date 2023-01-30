@@ -51,6 +51,9 @@ var textArea15 = document.querySelector("#hour-15 textarea");
 var textArea16 = document.querySelector("#hour-16 textarea");
 var textArea17 = document.querySelector("#hour-17 textarea");
 
+//create a list of all time block save buttons
+var saveButtons = [timeBlock8, timeBlock9, timeBlock10, timeBlock11, timeBlock12, timeBlock13, timeBlock14, timeBlock15, timeBlock16, timeBlock17];
+
 //create object to use in local storage for all 9 time blocks
 //create a function that initializes taskData object depending on what is in localStorage
 
@@ -122,7 +125,7 @@ function saveData(e) {
     taskData = JSON.parse(localStorage.getItem('taskData'));
   }
 
-  else {
+  else { //if a taskData localStorage object does not currently exist
     console.log("False");
   }
 
@@ -134,20 +137,17 @@ function saveData(e) {
 function renderData() {
   //create a list of all text areas in timeblocks
   var textAreas = [textArea8, textArea9, textArea10, textArea11, textArea12, textArea13, textArea14, textArea15, textArea16, textArea17];
-  if (localStorage.getItem('taskData')) {
+  if (localStorage.getItem('taskData')) { //if the user has already saved items into the taskData localStorage object
     console.log("Render True");
     var taskData = JSON.parse(localStorage.getItem("taskData"));
   }
-  else {
+  else { //if a taskData localStorage object does not currently exist
     console.log("Render False");
   }
   for (var i = 0; i < textAreas.length; i++) {
     textAreas[i].textContent = taskData[Object.keys(taskData)[i]];
   }
 };
-
-//create a list of all time block save buttons
-var saveButtons = [timeBlock8, timeBlock9, timeBlock10, timeBlock11, timeBlock12, timeBlock13, timeBlock14, timeBlock15, timeBlock16, timeBlock17];
 
 //assign an event listener with save functionality to all time block save buttons
 for (var i = 0; i < saveButtons.length; i++) {
