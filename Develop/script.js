@@ -25,7 +25,7 @@ localStorage.clear();
 //create a variable that targets p element of header in which current day will be displayed
 var currentDayEl = document.querySelector("#currentDay");
 
-//create a variable that targets the 8AM timeblock of the container-fluid div
+//create variables that target all save buttons of the container-fluid div
 var timeBlock8 = document.querySelector("#hour-8 button");
 var timeBlock9 = document.querySelector("#hour-9 button");
 var timeBlock10 = document.querySelector("#hour-10 button");
