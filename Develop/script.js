@@ -122,12 +122,10 @@ function saveData(e) {
   keyReturn(timeBlock, taskData);
   var key = keyReturn(timeBlock, taskData);
   if (localStorage.getItem('taskData')) { //if the user has already saved items into the taskData localStorage object
-    console.log("True");
     taskData = JSON.parse(localStorage.getItem('taskData'));
   }
 
   else { //if a taskData localStorage object does not currently exist
-    console.log("False");
   }
 
   taskData[key] = task; //call the keyReturn function to assing text value in task to approprate key in taskData object
@@ -139,11 +137,9 @@ function renderData() {
   //create a list of all text areas in timeblocks
   var textAreas = [textArea8, textArea9, textArea10, textArea11, textArea12, textArea13, textArea14, textArea15, textArea16, textArea17];
   if (localStorage.getItem('taskData')) { //if the user has already saved items into the taskData localStorage object
-    console.log("Render True");
     var taskData = JSON.parse(localStorage.getItem("taskData"));
   }
   else { //if a taskData localStorage object does not currently exist
-    console.log("Render False");
   }
   for (var i = 0; i < textAreas.length; i++) {
     textAreas[i].textContent = taskData[Object.keys(taskData)[i]];
