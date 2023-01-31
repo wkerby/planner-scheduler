@@ -6,6 +6,8 @@ As part of the challenge 5 assignment I was tasked with creating a simple calend
 
 ## User Story
 
+As part of this assignment, I was asked to make changes to a planner and scheduler that would allow users to save agenda items. The agenda items persists upon refresh. 
+
 ```md
 AS AN employee with a busy schedule
 I WANT to add important events to a daily planner
@@ -13,6 +15,8 @@ SO THAT I can manage my time effectively
 ```
 
 ## Acceptance Criteria
+
+The acceptance critetia below covers what I was asked to provide to the end user.
 
 ```md
 GIVEN I am using a daily planner to create a schedule
@@ -37,6 +41,6 @@ The following animation (not my own) demonstrates the application functionality:
 <!-- @TODO: create ticket to review/update image) -->
 ![A user clicks on slots on the color-coded calendar and edits the events.](./Assets/05-third-party-apis-homework-demo.gif)
 
-Below you will find a link to the Git Page with which you can access the application:
+Below you will find a link to the Git Page from which you can access the application:
 
-- PASTE GIT PAGE LINK HERE
+https://github.com/wkerby/planner-scheduler.git
